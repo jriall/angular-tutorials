@@ -1,3 +1,4 @@
+import { RecipeService } from './recipes/recipe.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -5,7 +6,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -40,8 +41,14 @@ import { SigninComponent } from './auth/signin/signin.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
-  providers: [ShoppingListService, AuthService, AuthGuard],
+  providers: [
+    ShoppingListService,
+    AuthService,
+    AuthGuard,
+    RecipeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
